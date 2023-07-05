@@ -8,16 +8,16 @@ export default function WeeklyDeals() {
         Weekly Deals{" "}
       </h1>
       <div
-        className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"
+        className="row row-cols-1 row-cols-md-3 g-4"
         style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "center",
-          margin: "0 15rem",
+          width: '100%',
+          alignItems:"center"
         }}
       >
         {productData.map((product, key) => (
-          <div className="col" key={key} style={{ marginBottom: "20px" }}>
+          <div className="col" key={key} >
             <Card product={product} />
           </div>
         ))}
