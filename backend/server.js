@@ -2,9 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-import productRoutes from "./routes/productRoutes.js";
-import reviewRoutes from "./routes/reviewRoutes.js";
-import cartRoutes from "./routes/cartRoutes.js";
+import productRoutes from "./route/productRoutes.js";
+import reviewRoutes from "./route/reviewRoutes.js";
+import cartRoutes from "./route/cartRoutes.js";
 
 import customerRouter from './route/customerRouter.js';
 import categoryRouter from './route/categoryRouter.js'

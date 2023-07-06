@@ -1,4 +1,4 @@
-import { productData } from "../../productData.js";
+import { productData } from "../../../productData.js";
 import Card from "./Card/Card.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
