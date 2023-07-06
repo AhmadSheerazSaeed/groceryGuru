@@ -13,8 +13,8 @@ export default function Card({ product }) {
           <p className="card-text"> 
           Some quick example text to build on the card title and make up the bulk of the  content.
           </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
+          <a href="#" className="btn btn-primary"  style={{ backgroundColor: "#F39317", borderColor: "#F39317" }} >
+          Sale
           </a>
         </div>
       </div>
