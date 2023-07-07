@@ -1,7 +1,5 @@
 import React from "react";
 
-import React from 'react';
-
 const Cart = ({ cartItems, removeFromCart }) => {
   const handleRemoveFromCart = (product) => {
     removeFromCart(product);
