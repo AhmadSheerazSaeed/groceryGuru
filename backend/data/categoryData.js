@@ -19,14 +19,14 @@ const categories = [
     {
       id: 3,
       name: 'Spices',
-      imageUrl: 'https://example.com/spices.jpg',
+      imageUrl: '',
       details: 'A wide range of spices to add flavor to your dishes.',
       discount: 0
     },
     {
       id: 4,
       name: 'Whole Grain',
-      imageUrl: 'https://example.com/whole_grain.jpg',
+      imageUrl: '',
       details: 'Healthy whole grain products for a balanced diet.',
       discount: 0
     }

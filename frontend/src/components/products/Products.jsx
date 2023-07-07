@@ -5,7 +5,7 @@ const Products = ({ selectedCategory, addToCart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products based on selected category from the backend
+    
     if (selectedCategory) {
       axios.get(`/api/products?categoryId=${selectedCategory}`)
         .then((response) => {
