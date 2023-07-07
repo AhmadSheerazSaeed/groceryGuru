@@ -1,3 +1,4 @@
+import WeeklyDeals from "./components/WeeklyDeals/WeeklyDeals"
 import "./App.css";
 import Header from "./components/header/Header";
 import { Routes, Route } from "react-router-dom";
