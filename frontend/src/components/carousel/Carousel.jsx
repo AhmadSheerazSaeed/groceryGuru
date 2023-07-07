@@ -1,28 +1,25 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
+import './styles.css';
 
+// import required modules
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 
-
-
-
-
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "./styles.css";
-
-import { EffectCoverflow, Pagination } from "swiper";
-
-export default function Carousel() {
+export default function App() {
   return (
-    <div className="h-600 w-full absolute">
+    <>
       <Swiper
-        effect={"coverflow"}
+        effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={"auto"}
+        slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -35,22 +32,33 @@ export default function Carousel() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="/images/avocado.png" />
+          <img src="/grocery-images/fruits/avocado1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={} />
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src=""/>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="" />
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="" />
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
         </SwiperSlide>
-       
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+        </SwiperSlide>
       </Swiper>
-    </div>
+    </>
   );
 }
