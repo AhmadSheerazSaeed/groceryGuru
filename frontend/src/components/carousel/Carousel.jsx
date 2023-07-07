@@ -36,16 +36,16 @@ export default function Carousel() {
           <img src="/images/avocado.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={africanStarApple} />
+          <img src={} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={waterMelon}/>
+          <img src=""/>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <img src="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+          <img src="" />
         </SwiperSlide>
        
       </Swiper>
