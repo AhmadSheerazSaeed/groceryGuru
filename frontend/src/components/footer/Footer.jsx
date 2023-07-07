@@ -87,6 +87,8 @@ function Footer() {
             />
           </div>
         </div>
+        <hr />
+        <p className="copy-right">© 2021 All rights reserved</p>
       </section>
     </>
   );
