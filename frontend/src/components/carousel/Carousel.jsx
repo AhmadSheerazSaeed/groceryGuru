@@ -12,7 +12,7 @@ import './styles.css';
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
-export default function App() {
+ export default function Carousel() {
   return (
     <>
       <Swiper
@@ -32,31 +32,31 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="/grocery-images/fruits/avocado1.jpg" />
+          <img src="/grocery-images/spices/cloves.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <img src="/grocery-images/fruits/pineapple2.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <img src="/grocery-images/rice/jasmine.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <img src="/grocery-images/spices/coriander.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+          <img src="/grocery-images/spices/Turmeric-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+          <img src="/grocery-images/spices/Ginger.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+          <img src="/grocery-images/staple-foods/barley.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+          <img src="/grocery-images/vegetables/okra.jpeg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+          <img src="/grocery-images/vegetables/green-beans.jpg" />
         </SwiperSlide>
       </Swiper>
     </>

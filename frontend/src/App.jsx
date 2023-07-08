@@ -18,6 +18,7 @@ function App() {
     <div className="whole_wrapper">
       <Header />
       <Carousel/>
+      <WeeklyDeals/>
       <div className="routesWrapper">
         <Routes>
           <Route exact path="/categories" element={<Categories />} />
