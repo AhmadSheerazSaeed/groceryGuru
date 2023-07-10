@@ -45,17 +45,18 @@ export const categoryById = async (req, res) => {
  */
 export const categoryName = async (req, res) => {
   try {
-    const category = await Category.findOne(req.params.categoryName);
+    const category = await Category.findOne({ categoryName: req.params.name });
 
     if (!category) {
-      return res.status(404).json({ success: false, error: "Category name not found" });
+      return res.status(404).json({ success: false, error: "Category not found" });
     }
+
     return res.status(200).json({ success: true, data: category });
-    
   } catch (error) {
     return res.status(500).json({ success: false, error: error.message });
   }
 };
+
 
 // /**
 //  *
