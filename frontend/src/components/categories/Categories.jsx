@@ -1,32 +1,49 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CategoryCard from "./CategoryCard";
 
-const Categories = ({ onSelectCategory }) => {
+const Categories = () => {
   const [categories, setCategories] = useState([]);
 
+
+
   useEffect(() => {
-    // Fetch categories from the backend
-    axios
-      .get("/api/categories")
-      .then((response) => {
-        setCategories(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching categories:", error);
-      });
+    fetchCategories();
   }, []);
 
+  const fetchCategories = async () => {
+    try {
+      const allCategories = await axios.get(
+        "http://localhost:4000/api/category/allcategories"
+      );
+      console.log("allcategories", allCategories);
+      setCategories(allCategories.data);
+    } catch (error) {
+      console.error("error", error);
+    }
+  };
   return (
-    <div>
-      <h2>Categories</h2>
-      <ul>
-        {categories.map((category) => (
-          <li key={category.id} onClick={() => onSelectCategory(category.id)}>
-            {category.name}
-          </li>
+    <>
+    <h2>Categories</h2>
+    <div className="row row-cols-1 row-cols-md-4 g-4"
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
+      width: "100%",
+      alignItems: "center",
+    }}>
+      
+  
+        {categories.map((category,key) => (
+          <div className="col"key={key}>
+           
+            <CategoryCard category={category}/>
+          </div>
+          
         ))}
-      </ul>
+     
     </div>
+    </>
   );
 };
 
