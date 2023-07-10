@@ -63,7 +63,7 @@ export const categoryName = async (req, res) => {
 //  * @param {*} req
 //  * @param {*} res
 //  * @returns
-//  */
+
 // export const categoryByProduct = async (req, res) => {
 //   try {
 //     const category = await Category.findById(req.params.id);
