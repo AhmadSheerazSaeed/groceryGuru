@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
 
-const Cart = ({ cartItems, removeFromCart }) => {
+
+
   const handleRemoveFromCart = (product) => {
     removeFromCart(product);
+  };
+
+  const handleUpdateQuantity = (product, quantity) => {
+    updateQuantity(product, quantity);
+  };
+
+  const [quantities, setQuantities] = useState({});
+
+  const handleQuantityChange = (event, item) => {
+    const { value } = event.target;
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [item.id]: parseInt(value, 10),
+    }));
   };
 
   return (
@@ -17,8 +33,19 @@ const Cart = ({ cartItems, removeFromCart }) => {
               <img src={item.image} alt={item.name} />
               <h3>{item.name}</h3>
               <p>Price: {item.price} EUR</p>
-              <p>Quantity: {item.quantity}</p>
+              <p>
+                Quantity:
+                <input
+                  type="number"
+                  min="1"
+                  value={quantities[item.id] || item.quantity}
+                  onChange={(event) => handleQuantityChange(event, item)}
+                />
+              </p>
               <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
+              <button onClick={() => handleUpdateQuantity(item, quantities[item.id] || item.quantity)}>
+                ADD +
+              </button>
             </li>
           ))}
         </ul>
@@ -28,3 +55,4 @@ const Cart = ({ cartItems, removeFromCart }) => {
 };
 
 export default Cart;
+
