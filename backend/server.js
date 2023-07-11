@@ -9,7 +9,7 @@ import cartRoutes from "./route/cartRoutes.js";
 import customerRouter from './route/customerRouter.js';
 import categoryRouter from './route/categoryRouter.js'
 
-const app = express();
+const app =  express();
 
 dotenv.config();
 app.use(cors());
