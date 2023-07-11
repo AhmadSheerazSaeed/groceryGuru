@@ -17,6 +17,7 @@ function App() {
     <div className="whole_wrapper">
       <Header />
      <WeeklyDeals />
+     <Categories/>
       <div className="routesWrapper">
         <Routes>
           <Route exact path="/categories" element={<Categories />} />
