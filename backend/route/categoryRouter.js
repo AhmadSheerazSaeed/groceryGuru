@@ -19,6 +19,6 @@ router.post("/createcategory", newCategory);
 
 router.patch("/editcategory/:id", editCategory);
 
-router.delete("/deleteccategory/:id", deleteCategory);
+router.delete("/deletecategory/:id", deleteCategory);
 
 export default router;

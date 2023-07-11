@@ -1,16 +1,12 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CategoryCard from "./CategoryCard";
-
 const Categories = () => {
   const [categories, setCategories] = useState([]);
-
-
-
   useEffect(() => {
     fetchCategories();
   }, []);
-
   const fetchCategories = async () => {
     try {
       const allCategories = await axios.get(
@@ -32,19 +28,13 @@ const Categories = () => {
       width: "100%",
       alignItems: "center",
     }}>
-      
-  
         {categories.map((category,key) => (
           <div className="col"key={key}>
-           
             <CategoryCard category={category}/>
           </div>
-          
         ))}
-     
     </div>
     </>
   );
 };
-
 export default Categories;
