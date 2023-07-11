@@ -1,37 +1,39 @@
-/* .wrapper_footer {
-  position: absolute;
-  bottom: 0;
-} */
-@import url("https://fonts.googleapis.com/css2?family=Tauri&display=swap");
-
 .footer-section {
   font-family: "Tauri", sans-serif;
+  width: 100%;
+  background-color: #ffffff;
+  margin: auto;
 }
 
 .grid-container {
-  border: 3px dotted green;
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  padding: 6rem;
-  margin: 2rem 10rem;
+   grid-template-columns: 18rem 18rem 18rem 18rem;
+  padding: 4rem 0;
   font-size: 15px;
   line-height: 3px;
 }
 
-a {
+.contact-us{
+ padding-left: 0;
+}
+
+.h-five, .follow-us{
+  font-weight: bolder;
+   font-size: 15px;
+}
+h6 {
+  transition-duration: 0.3s;
+  color: #262626;
+}
+
+h6:hover {
+  color: #f39317;
+}
+
+.link {
   text-decoration: none;
-  color: black;
-}
-
-h3 {
-  padding-bottom: 1rem;
-}
-h4 {
-  font-weight: normal;
-}
-
-ul {
-  padding-left: 0;
+  color: #262626;
+ 
 }
 
 li {
@@ -40,21 +42,64 @@ li {
 }
 
 .icon {
-  color: orange;
+  color: #f39317;
   font-size: 1.5rem;
+  align-self: flex-start;
 }
 .phone {
   margin-left: 1rem;
+  margin-top: 0.5rem;
 }
 
 .location {
-  margin-left: 1rem;
+  margin: 0 1rem;
   line-height: 1.5rem;
 }
+.face-twit-icon{
+  margin-left: 0;
 
-.facebook-icon,
+   }
+  
 .twitter-icon {
   margin-left: 1rem;
-  background-color: white;
-  color: orange;
+  color: #f39317;
+}  
+
+.facebook-icon:hover,
+.twitter-icon:hover {
+  color: #262626;
+  transition-duration: 0.3s;
+
+}
+
+.copy-right {
+  margin-left: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-container {
+    display: inline-block;
+    margin: auto;
+    font-size: 12px;
+    line-height: 3px;
+    width: 100%;
+  }
+
+  .location {
+    line-height: 1.5rem;
+    width: 50%;
+  }
+
+  .follow-us {
+    margin-top: 3rem;
+  }
+
+  .footer-card-middle,
+  .footer-card-right {
+    margin-top: 3rem;
+  }
+
+  .copy-right {
+    margin-left: 0;
+  }
 }

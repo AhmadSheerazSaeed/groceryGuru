@@ -1,3 +1,4 @@
+import WeeklyDeals from "./components/WeeklyDeals/WeeklyDeals"
 import "./App.css";
 import Header from "./components/header/Header";
 import { Routes, Route } from "react-router-dom";
@@ -15,6 +16,8 @@ function App() {
   return (
     <div className="whole_wrapper">
       <Header />
+     <WeeklyDeals />
+     <Categories/>
       <div className="routesWrapper">
         <Routes>
           <Route exact path="/categories" element={<Categories />} />

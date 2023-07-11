@@ -1,38 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
-const Categories = ({ onSelectCategory }) => {
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import CategoryCard from "./CategoryCard";
+const Categories = () => {
   const [categories, setCategories] = useState([]);
-
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get('/api/category');
-        setCategories(response.data);
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-      }
-    };
-
     fetchCategories();
   }, []);
-
+  const fetchCategories = async () => {
+    try {
+      const allCategories = await axios.get(
+        "http://localhost:4000/api/category/allcategories"
+      );
+      console.log("allcategories", allCategories);
+      setCategories(allCategories.data);
+    } catch (error) {
+      console.error("error", error);
+    }
+  };
   return (
-    <div className="row">
-      <h2>Categories</h2>
-      {categories.map((category) => (
-        <div className="col-md-3" key={category._id} onClick={() => onSelectCategory(category._id)}>
-          <div className="card">
-            <img src={category.imageUrl} className="card-img-top" alt={category.name} />
-            <div className="card-body">
-              <h5 className="card-title">{category.name}</h5>
-              <p className="card-text">{category.details}</p>
-            </div>
+    <>
+    <h2>Categories</h2>
+    <div className="row row-cols-1 row-cols-md-4 g-4"
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
+      width: "100%",
+      alignItems: "center",
+    }}>
+        {categories.map((category,key) => (
+          <div className="col"key={key}>
+            <CategoryCard category={category}/>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
+    </>
   );
 };
-
 export default Categories;

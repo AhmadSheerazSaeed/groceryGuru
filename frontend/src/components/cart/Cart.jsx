@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
 const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
+
+
+
   const handleRemoveFromCart = (product) => {
     removeFromCart(product);
   };
