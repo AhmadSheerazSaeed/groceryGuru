@@ -16,9 +16,13 @@ import Carousel from "./components/carousel/Carousel";
 function App() {
   return (
     <div className="whole_wrapper">
-      <Header />
-      <Carousel/>
-      <WeeklyDeals/>
+ 
+
+      <Header/>
+     <Carousel/>
+     <WeeklyDeals/>
+    <Categories/>
+
       <div className="routesWrapper">
         <Routes>
           <Route exact path="/categories" element={<Categories />} />

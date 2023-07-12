@@ -1,50 +1,38 @@
-
 .footer-section {
   font-family: "Tauri", sans-serif;
   width: 100%;
-  width: 70%;
   background-color: #ffffff;
   margin: auto;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  padding: 4rem 2rem;
-  margin: 2rem 5rem;
-  grid-template-columns: 20rem 20rem 20rem 20rem;
-   margin: 2rem auto;
-   padding: 5rem 0;
+   grid-template-columns: 18rem 18rem 18rem 18rem;
+  padding: 4rem 0;
   font-size: 15px;
   line-height: 3px;
-width: 80rem;
+}
 
- }
+.contact-us{
+ padding-left: 0;
+}
 
-h4 {
-  font-weight: normal;
+.h-five, .follow-us{
+  font-weight: bolder;
+   font-size: 15px;
+}
+h6 {
   transition-duration: 0.3s;
-}
-
-h4:hover {
-  color: #f39317;
-}
-a {
-  text-decoration: none;
-  color: black;
   color: #262626;
 }
 
-h3 {
-  padding-bottom: 1rem;
-}
-h4 {
-  font-weight: normal;
+h6:hover {
+  color: #f39317;
 }
 
-
-ul {
-  padding-left: 0;
+.link {
+  text-decoration: none;
+  color: #262626;
  
 }
 
@@ -54,7 +42,6 @@ li {
 }
 
 .icon {
-  color: orange;
   color: #f39317;
   font-size: 1.5rem;
   align-self: flex-start;
@@ -67,56 +54,52 @@ li {
 .location {
   margin: 0 1rem;
   line-height: 1.5rem;
-   width: 50%;
 }
+.face-twit-icon{
+  margin-left: 0;
 
-.location-card {
-  margin-top: 1rem;
-}
-
-.facebook-icon,
+   }
+  
 .twitter-icon {
   margin-left: 1rem;
-  background-color: white;
-  color: orange;
-  background-color: #ffffff;
   color: #f39317;
-  transition-duration: 0.3s;
-}
+}  
 
 .facebook-icon:hover,
 .twitter-icon:hover {
   color: #262626;
+  transition-duration: 0.3s;
+
 }
 
- .copy-right{
+.copy-right {
   margin-left: 2rem;
- }
+}
 
 @media only screen and (max-width: 600px) {
   .grid-container {
     display: inline-block;
     margin: auto;
-     font-size: 12px;
+    font-size: 12px;
     line-height: 3px;
     width: 100%;
   }
 
   .location {
-     line-height: 1.5rem;
-     width: 50%;
+    line-height: 1.5rem;
+    width: 50%;
   }
 
   .follow-us {
     margin-top: 3rem;
   }
 
-   .footer-card-middle,
-   .footer-card-right{
+  .footer-card-middle,
+  .footer-card-right {
     margin-top: 3rem;
-   }
+  }
 
-   .copy-right{
+  .copy-right {
     margin-left: 0;
-   }
+  }
 }
