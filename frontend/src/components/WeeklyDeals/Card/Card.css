@@ -1,1 +1,16 @@
 
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+  }
+  
+  .card-img-top {
+    flex: 1; /* Allow the image to expand and fill the available space */
+    object-fit: cover; /* Ensure the image maintains its aspect ratio */
+  }
+  
+  .card-body {
+    flex: none; /* Prevent the card body from expanding */
+  }
+  

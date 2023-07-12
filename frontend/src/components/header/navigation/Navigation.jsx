@@ -5,8 +5,8 @@ import navigationStyles from "./Navigation.module.css";
 function Navigation() {
   return (
     <div className={navigationStyles.wrapper_navigation}>
-      <Link className={navigationStyles.linkStyle} to="/categories">
-        Categories
+      <Link className={navigationStyles.linkStyle} to="/products">
+      Products
       </Link>
       <Link className={navigationStyles.linkStyle} to="/sale">
         Sale
