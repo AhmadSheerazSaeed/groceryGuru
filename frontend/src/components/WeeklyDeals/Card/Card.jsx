@@ -1,14 +1,14 @@
 import React from "react";
 
 import "./Card.css";
-import berebere from '../../../images/berebere.jpg'
+
 
 export default function Card({ product }) {
   return (
     <>
       <div className="card">
-        {/* <img src={product.imageUrl} className="card-img-top" alt="..." /> */}
-        <img src={berebere} className="card-img-top" alt="..." />
+        <img src={product.imageUrl} className="card-img-top" alt="..." />
+        {/* <img src={berebere} className="card-img-top" alt="..." /> */}
         <div className="card-body">
           <h5 className="card-title">{product.itemName}</h5>
           <p className="card-text">
