@@ -11,13 +11,18 @@ import Contact from "./components/contact/Contact";
 import Sale from "./components/sale/Sale";
 import Footer from "./components/footer/Footer";
 import PageNotFound from "./components/pagenotfound/PageNotFound";
+import Carousel from "./components/carousel/Carousel";
 
 function App() {
   return (
     <div className="whole_wrapper">
-      <Header />
-     <WeeklyDeals />
-     <Categories/>
+ 
+
+      <Header/>
+     <Carousel/>
+     <WeeklyDeals/>
+    <Categories/>
+
       <div className="routesWrapper">
         <Routes>
           <Route exact path="/categories" element={<Categories />} />
