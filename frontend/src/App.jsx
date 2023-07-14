@@ -12,6 +12,7 @@ import Sale from "./components/sale/Sale";
 import Footer from "./components/footer/Footer";
 import PageNotFound from "./components/pagenotfound/PageNotFound";
 import Carousel from "./components/carousel/Carousel";
+import Products from "./components/products/Products";
 
 function App() {
   return (
@@ -19,13 +20,14 @@ function App() {
  
 
       <Header/>
-     <Carousel/>
-     <WeeklyDeals/>
-    <Categories/>
+     
+    
+   
 
       <div className="routesWrapper">
         <Routes>
-          <Route exact path="/categories" element={<Categories />} />
+          <Route path="/" element={<div><Carousel/>  <WeeklyDeals/><Categories/></div>}/>
+          <Route exact path="/products" element={<Products/>} />
           <Route exact path="/sale" element={<Sale />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/contact" element={<Contact />} />
