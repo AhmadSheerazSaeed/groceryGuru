@@ -14,7 +14,7 @@ function Header() {
     // necessary in mobile devices
     <div className={headerStyles.wrapper_header}>
       <div className={headerStyles.logoIcon}>
-        <LogoIcon />
+       <Link to={"/"}><LogoIcon /></Link> 
       </div>
 
       <div className={headerStyles.navigation}>

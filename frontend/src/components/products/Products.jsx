@@ -1,39 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Card from './Card';
 
-const Products = ({ selectedCategory, addToCart }) => {
-  const [products, setProducts] = useState([]);
+export default function Products() {
+  const [theProduct, setTheProduct] = useState([]);
 
   useEffect(() => {
-    
-    if (selectedCategory) {
-      axios.get(`/api/products?categoryId=${selectedCategory}`)
-        .then((response) => {
-          setProducts(response.data);
-        })
-        .catch((error) => {
-          console.error('Error fetching products:', error);
-        });
+    fetchProduct();
+  }, []);
+  const fetchProduct = async () => {
+    try {
+      const allProducts = await axios.get('http://localhost:4000/api/products/allProducts');
+      console.log("allProducts", allProducts)
+      setTheProduct(allProducts.data);
+    } catch (error) {
+      console.error("error", error);
     }
-  }, [selectedCategory]);
-
-  const handleAddToCart = (product) => {
-    addToCart(product);
   };
-
   return (
-    <div>
-      <h2>Products</h2>
-      {products.map((product) => (
-        <div key={product.id}>
-          <img src={product.image} alt={product.name} />
-          <h3>{product.name}</h3>
-          <p>Price: {product.price} EUR</p>
-          <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
-        </div>
-      ))}
-    </div>
+    <>
+      <h1 style={{ margin: "20px auto", textAlign: "center" }}>
+       All Products{" "}
+      </h1>
+      <div
+        className="row row-cols-1 row-cols-md-3 g-4"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          width: "100%",
+          alignItems: "center",
+        }}
+      >
+        {theProduct.map((product, key) => (
+          <div className="col" key={key}>
+            <Card product={product} />
+          </div>
+        ))}
+      </div>
+    </>
   );
-};
-
-export default Products;
+}
