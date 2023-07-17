@@ -13,6 +13,7 @@ import Footer from "./components/footer/Footer";
 import PageNotFound from "./components/pagenotfound/PageNotFound";
 import Carousel from "./components/carousel/Carousel";
 import Products from "./components/products/Products";
+import ProductDetails from "./components/products/ProductDetails";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/signinandsignup" element={<Authorization />} />
           <Route exact path="/forgotPassword" element={<ForgotPassword />} />
           <Route exact path="/newcustomer" element={<NewCustomer />} />
+          <Route path="/productdetails/:id" element={<ProductDetails/>}/>
           <Route exact path="*" element={<PageNotFound />} />
         </Routes>
       </div>
