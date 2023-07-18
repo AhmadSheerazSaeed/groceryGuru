@@ -13,7 +13,9 @@ import Footer from "./components/footer/Footer";
 import PageNotFound from "./components/pagenotfound/PageNotFound";
 import Carousel from "./components/carousel/Carousel";
 import Products from "./components/products/Products";
-import CategoryItems from "./components/categories/CategoryItems";
+
+import ProductDetails from "./components/products/ProductDetails";
+import CategoryItems from "./components/categories/CategoryItems"
 
 function App() {
   return (
@@ -35,7 +37,11 @@ function App() {
           <Route exact path="/signinandsignup" element={<Authorization />} />
           <Route exact path="/forgotPassword" element={<ForgotPassword />} />
           <Route exact path="/newcustomer" element={<NewCustomer />} />
+
+          <Route path="/productdetails/:id" element={<ProductDetails/>}/>
+
           <Route path="/categories/:id" element={<CategoryItems/>}/>
+
           <Route exact path="*" element={<PageNotFound />} />
         </Routes>
       </div>
