@@ -13,7 +13,6 @@ function LogoIcon() {
         // viewBox="0 0 390.000000 360.000000"
         viewBox="40 0 390.000000 360.000000"
         preserveAspectRatio="xMidYMid meet"
-        
       >
         <metadata>
           Created by potrace 1.16, written by Peter Selinger 2001-2019
@@ -96,7 +95,7 @@ function LogoIcon() {
       </svg>
 
       {/* This is the company name displays with the logo */}
-      <p className="font-bold ">GroceryGuru</p>
+      <p>GroceryGuru</p>
     </div>
   );
 }

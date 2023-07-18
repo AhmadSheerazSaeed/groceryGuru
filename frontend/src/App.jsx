@@ -1,4 +1,4 @@
-import WeeklyDeals from "./components/WeeklyDeals/WeeklyDeals"
+import WeeklyDeals from "./components/WeeklyDeals/WeeklyDeals";
 import "./App.css";
 import Header from "./components/header/Header";
 import { Routes, Route } from "react-router-dom";
@@ -20,27 +20,28 @@ import CategoryItems from "./components/categories/CategoryItems"
 function App() {
   return (
     <div className="whole_wrapper">
- 
-
-      <Header/>
-     
-    
-   
+      <Header />
 
       <div className="routesWrapper">
         <Routes>
-          <Route path="/" element={<div><Carousel/>  <WeeklyDeals/><Categories/></div>}/>
-          <Route exact path="/products" element={<Products/>} />
+          <Route
+            path="/"
+            element={
+              <div>
+                <Carousel /> <WeeklyDeals />
+                <Categories />
+              </div>
+            }
+          />
+          <Route exact path="/products" element={<Products />} />
           <Route exact path="/sale" element={<Sale />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/signinandsignup" element={<Authorization />} />
           <Route exact path="/forgotPassword" element={<ForgotPassword />} />
           <Route exact path="/newcustomer" element={<NewCustomer />} />
-
+          <Route path="/categories/:id" element={<CategoryItems />} />
           <Route path="/productdetails/:id" element={<ProductDetails/>}/>
-
-          <Route path="/categories/:id" element={<CategoryItems/>}/>
 
           <Route exact path="*" element={<PageNotFound />} />
         </Routes>
