@@ -3,24 +3,37 @@ import { Link } from "react-router-dom";
 import authorizationStyle from "./Authorization.module.css";
 
 function Authorization() {
+  const handleAutorizarionForm = (e) => {
+    e.preventDefault();
+
+    const customerLoginFormData = new FormData(e.currentTarget);
+    const userData = Object.fromEntries(customerLoginFormData);
+    console.log(userData);
+  };
+
   return (
     <div>
-      <form className={authorizationStyle.formInputs}>
+      <form
+        onSubmit={handleAutorizarionForm}
+        className={authorizationStyle.formInputs}
+      >
         <h1>Authorization</h1>
 
         <input
           className={authorizationStyle.email}
           type="text"
           placeholder="Email"
+          name="email"
         />
         <input
           className={authorizationStyle.password}
           type="password"
           placeholder="Password"
+          name="password"
         />
 
         <div className={authorizationStyle.btnDiv}>
-          <Link className={authorizationStyle.link}>Send</Link>
+          <button className={authorizationStyle.btnSubmit}>Send</button>
           <div>
             <Link className={authorizationStyle.linkStyle} to="/forgotPassword">
               Forgot your password?
