@@ -1,14 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import authorizationStyle from "./Authorization.module.css";
+import axios from "axios";
+import { CustomerContext } from "../context/CustomerContext";
 
 function Authorization() {
-  const handleAutorizarionForm = (e) => {
+  const { setCustomerName } = useContext(CustomerContext);
+  // use this hook to navigate user to the main page after the successfull login
+  const navigate = useNavigate();
+
+  const handleAutorizarionForm = async (e) => {
     e.preventDefault();
 
     const customerLoginFormData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(customerLoginFormData);
-    console.log(userData);
+    // console.log(userData);
+
+    try {
+      const loggedinUser = await axios.post(
+        "http://localhost:4000/api/customers/customerlogin",
+        userData
+      );
+
+      // setting customer name to display in the welcome message
+      setCustomerName(loggedinUser.data.customerToReturn.firstName);
+
+      // setting local storage with the name of the person logged in
+      // to use it in the welcome section in the page
+      localStorage.setItem(
+        "userData",
+        JSON.stringify(loggedinUser.data.customerToReturn.firstName)
+      );
+
+      // navigate use to main page
+      navigate("/");
+    } catch (error) {
+      console.log(error.toString());
+    }
   };
 
   return (
