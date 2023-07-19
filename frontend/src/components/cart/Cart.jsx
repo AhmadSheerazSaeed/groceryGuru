@@ -22,7 +22,8 @@ const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
 
   return (
     <div>
-      <h2>Cart</h2>
+            <h2>Cart</h2>
+            
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (

@@ -15,14 +15,13 @@ import Carousel from "./components/carousel/Carousel";
 import Products from "./components/products/Products";
 import CategoryItems from "./components/categories/CategoryItems";
 
+
 function App() {
   return (
     <div className="whole_wrapper">
  
 
       <Header/>
-     
-    
    
 
       <div className="routesWrapper">
@@ -37,9 +36,15 @@ function App() {
           <Route exact path="/newcustomer" element={<NewCustomer />} />
           <Route path="/categories/:id" element={<CategoryItems/>}/>
           <Route exact path="*" element={<PageNotFound />} />
+        
+        
         </Routes>
       </div>
+
       <Footer />
+       
+    
+   
     </div>
   );
 }
