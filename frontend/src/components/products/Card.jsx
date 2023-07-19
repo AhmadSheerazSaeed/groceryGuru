@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./Card.css";
 import Review from "../review/Review";
 
@@ -20,13 +20,20 @@ export default function Card({ product }) {
               &euro;{product.purchasePrice}
             </span>
           </p>
-          <a
+          {/* <a
             href="#"
             className="btn btn-primary"
             style={{ backgroundColor: "#F39317", borderColor: "#F39317" }}
           >
             Buy
-          </a>
+          </a> */}
+          <Link
+            to={`/productdetails/${product._id}`}
+            className="btn btn-primary"
+            style={{ backgroundColor: "#F39317", borderColor: "#F39317" }}
+          >
+            Details
+          </Link>
         </div>
       </div>
     </>

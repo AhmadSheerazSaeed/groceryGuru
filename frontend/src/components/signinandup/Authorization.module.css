@@ -52,7 +52,8 @@
   color: black;
 }
 
-.link {
+.link,
+btnSubmit {
   height: 45px;
   width: 90px;
   background-color: var(--secondarycolor);
@@ -62,6 +63,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btnSubmit {
+  border: none;
 }
 
 /* media query for 600 px */
