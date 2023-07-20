@@ -10,13 +10,12 @@ export default function WeeklyDeals() {
   }, []);
   const fetchWeeklyDeals = async () => {
     try {
-      
-      const allProducts = await axios.get('http://localhost:4000/api/products/allProducts');
-      console.log("allProducts", allProducts)
-      const filteredProducts = allProducts.data.filter(product => product.salePrice !== 0);
-         setDeals(filteredProducts);
-      
-      
+      const allProducts = await axios.get("/api/products/allProducts");
+      console.log("allProducts", allProducts);
+      const filteredProducts = allProducts.data.filter(
+        (product) => product.salePrice !== 0
+      );
+      setDeals(filteredProducts);
     } catch (error) {
       console.error("error", error);
     }

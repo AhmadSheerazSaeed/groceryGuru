@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -15,9 +14,7 @@ export default function ProductDetails() {
 
   const fetchProductDetails = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:4000/api/products/productbyid/${id}`
-      );
+      const response = await axios.get(`/api/products/productbyid/${id}`);
       setProductDetail(response.data);
     } catch (error) {
       console.error("Error fetching product details:", error);

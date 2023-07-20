@@ -17,10 +17,7 @@ function NewCustomer() {
 
     //console.log(newCustomerData);
     try {
-      await axios.post(
-        "http://localhost:4000/api/customers/createcustomer",
-        newCustomerData
-      );
+      await axios.post("/api/customers/createcustomer", newCustomerData);
       console.log(newCustomerData);
 
       // setting customer name to display in the welcome message

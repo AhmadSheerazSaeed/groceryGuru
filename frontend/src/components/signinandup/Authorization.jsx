@@ -18,7 +18,7 @@ function Authorization() {
 
     try {
       const loggedinUser = await axios.post(
-        "http://localhost:4000/api/customers/customerlogin",
+        "4000/api/customers/customerlogin",
         userData
       );
 

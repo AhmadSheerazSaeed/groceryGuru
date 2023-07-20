@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Card from './Card';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Card from "./Card";
 
 export default function Products() {
   const [theProduct, setTheProduct] = useState([]);
@@ -10,8 +10,8 @@ export default function Products() {
   }, []);
   const fetchProduct = async () => {
     try {
-      const allProducts = await axios.get('http://localhost:4000/api/products/allProducts');
-      console.log("allProducts", allProducts)
+      const allProducts = await axios.get("/api/products/allProducts");
+      console.log("allProducts", allProducts);
       setTheProduct(allProducts.data);
     } catch (error) {
       console.error("error", error);
@@ -20,7 +20,7 @@ export default function Products() {
   return (
     <>
       <h1 style={{ margin: "20px auto", textAlign: "center" }}>
-       All Products{" "}
+        All Products{" "}
       </h1>
       <div
         className="row row-cols-1 row-cols-md-3 g-4"
