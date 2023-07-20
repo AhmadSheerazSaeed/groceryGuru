@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+
 import axios from 'axios';
 import Card from './Card';
 
 export default function Products() {
-  const [theProduct, setTheProduct] = useState([]);
 
+
+  const [theProduct, setTheProduct] = useState([]);
+  const {CartItems}   =   useContext(CartContext)
+console.log("hello",CartItems); 
   useEffect(() => {
     fetchProduct();
   }, []);
@@ -17,6 +22,9 @@ export default function Products() {
       console.error("error", error);
     }
   };
+
+ 
+
   return (
     <>
       <h1 style={{ margin: "20px auto", textAlign: "center" }}>
@@ -33,7 +41,7 @@ export default function Products() {
       >
         {theProduct.map((product, key) => (
           <div className="col" key={key}>
-            <Card product={product} />
+            <Card product={product}  />
           </div>
         ))}
       </div>

@@ -1,6 +1,19 @@
-import React from "react";
+import React,{useContext} from "react";
+import {CartContext} from "../context/CartContext";
+
 import "./ProductDetail.css";
 export default function ProductDetailCard({ productDetail }) {
+
+  const { addToCart } = useContext(CartContext);
+  const handleAddToCart = () =>{
+    console.log(productDetail);
+    const productId = productDetail._id;
+    const quantity = 1;
+
+    addToCart(productId, quantity);
+  };
+
+
   return (
     <div className="card mb-3 product-card">
       <div className="row g-0">
@@ -29,9 +42,13 @@ export default function ProductDetailCard({ productDetail }) {
               <strong>salePrice:</strong>
               {productDetail.salePrice}
             </p>
-            <button type="button" class="btn btn-outline-success">
-              ADD TO CARD
-            </button>
+            <button
+  type="button"
+  className="btn btn-outline-success"
+  onClick={handleAddToCart}
+>
+  ADD TO CART
+</button>
           </div>
         </div>
       </div>

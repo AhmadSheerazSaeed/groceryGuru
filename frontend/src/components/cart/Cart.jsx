@@ -1,50 +1,31 @@
+import React, { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
-import React, { useState } from 'react';
+const Cart = () => {
+  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
 
-const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
-  const handleRemoveFromCart = (product) => {
-    removeFromCart(product);
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
   };
 
-  const handleUpdateQuantity = (product, quantity) => {
-    updateQuantity(product, quantity);
-  };
-
-  const [quantities, setQuantities] = useState({});
-
-  const handleQuantityChange = (event, item) => {
-    const { value } = event.target;
-    setQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [item.id]: parseInt(value, 10),
-    }));
+  const handleUpdateQuantity = (productId, quantityChange) => {
+    updateQuantity(productId, quantityChange);
   };
 
   return (
     <div>
-      <h2>Cart</h2>
+      <h2>Your Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <ul>
           {cartItems.map((item) => (
-            <li key={item.id}>
-              <img src={item.image} alt={item.name} />
-              <h3>{item.name}</h3>
-              <p>Price: {item.price} EUR</p>
-              <p>
-                Quantity:
-                <input
-                  type="number"
-                  min="1"
-                  value={quantities[item.id] || item.quantity}
-                  onChange={(event) => handleQuantityChange(event, item)}
-                />
-              </p>
-              <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
-              <button onClick={() => handleUpdateQuantity(item, quantities[item.id] || item.quantity)}>
-                ADD +
-              </button>
+            <li key={item.productId}>
+              <span>Product ID: {item.productId}</span>
+              <span>Quantity: {item.quantity}</span>
+              <button onClick={() => handleRemoveFromCart(item.productId)}>Remove from Cart</button>
+              <button onClick={() => handleUpdateQuantity(item.productId, 1)}>Increase Quantity</button>
+              <button onClick={() => handleUpdateQuantity(item.productId, -1)}>Decrease Quantity</button>
             </li>
           ))}
         </ul>
@@ -54,4 +35,3 @@ const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
 };
 
 export default Cart;
-
