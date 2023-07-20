@@ -7,7 +7,7 @@ export const productById = async (req, res) => {
     if (!productById) {
       return res.status(StatusCodes.NOT_FOUND).json("product not found");
     }
-    return res.status(StatusCodes.NOT_FOUND).json(productId);
+    return res.status(StatusCodes.OK).json(productId);
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
@@ -45,21 +45,23 @@ export const allProducts = async (req, res) => {
   }
 };
 
-export const prodctByDiscount = async (req,res)=>{
+export const prodctByDiscount = async (req, res) => {
   try {
     const productDiscoutNumber = await Product.findOne({
-      discount:req.params.discount
-    })
-    if(!productDiscoutNumber){
-      return res.status(StatusCodes.NOT_FOUND).json("no discount number for the product");
+      discount: req.params.discount,
+    });
+    if (!productDiscoutNumber) {
+      return res
+        .status(StatusCodes.NOT_FOUND)
+        .json("no discount number for the product");
     }
-    return res.status(StatusCodes.OK).json(productDiscoutNumber)
+    return res.status(StatusCodes.OK).json(productDiscoutNumber);
   } catch (error) {
     return res
-    .status(StatusCodes.INTERNAL_SERVER_ERROR)
-    .json({ message: error.toString() });
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
   }
-}
+};
 
 export const deleteProduct = async (req, res) => {
   try {
@@ -79,6 +81,20 @@ export const deleteProduct = async (req, res) => {
       .json({ message: error.toString() });
   }
 };
+
+export const productByCategoryId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const products = await Product.find({ categoryId: id });
+    return res.status(StatusCodes.OK).json(products);
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
+
 export const newProduct = async (req, res) => {
   try {
     const createdProduct = await Product.create({
@@ -106,4 +122,10 @@ export const newProduct = async (req, res) => {
   }
 };
 
-export default { newProduct, deleteProduct,prodctByDiscount, productById,productByName };
+export default {
+  newProduct,
+  deleteProduct,
+  prodctByDiscount,
+  productById,
+  productByName,
+};
