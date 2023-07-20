@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Card.css";
+import Review from "../review/Review";
 
 export default function Card({ product }) {
   return (
@@ -10,9 +11,14 @@ export default function Card({ product }) {
 
         <div className="card-body">
           <h5 className="card-title">{product.itemName}</h5>
+          <Review />
           <p className="card-text">
-            <span style={{ color: "#F39317", fontWeight: "bold" }}></span>
-            &euro;{product.purchasePrice}
+            <span style={{ color: "#F39317", fontWeight: "bold" }}>
+              &euro;{product.salePrice}
+            </span>
+            <span style={{ textDecoration: "line-through" }}>
+              &euro;{product.purchasePrice}
+            </span>
           </p>
           {/* <a
             href="#"

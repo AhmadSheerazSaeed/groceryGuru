@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
@@ -23,9 +23,15 @@ const Cart = () => {
             <li key={item.productId}>
               <span>Product ID: {item.productId}</span>
               <span>Quantity: {item.quantity}</span>
-              <button onClick={() => handleRemoveFromCart(item.productId)}>Remove from Cart</button>
-              <button onClick={() => handleUpdateQuantity(item.productId, 1)}>Increase Quantity</button>
-              <button onClick={() => handleUpdateQuantity(item.productId, -1)}>Decrease Quantity</button>
+              <button onClick={() => handleRemoveFromCart(item.productId)}>
+                Remove from Cart
+              </button>
+              <button onClick={() => handleUpdateQuantity(item.productId, 1)}>
+                Increase Quantity
+              </button>
+              <button onClick={() => handleUpdateQuantity(item.productId, -1)}>
+                Decrease Quantity
+              </button>
             </li>
           ))}
         </ul>

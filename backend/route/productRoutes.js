@@ -1,11 +1,19 @@
 import express from "express";
-import {newProduct,allProducts,prodctByDiscount,deleteProduct,productById,productByName} from '../controllers/productController.js';
+import {
+  newProduct,
+  allProducts,
+  prodctByDiscount,
+  deleteProduct,
+  productById,
+  productByCategoryId,
+  productByName,
+} from "../controllers/productController.js";
 
 const router = express.Router();
 router.get("/allproducts", allProducts);
 router.get("/productbyid/:id", productById);
 router.get("/productbyname/:name", productByName);
-//router.get("/productbycategory/:categoryId", productByCategoryId);
+router.get("/productbycategory/:id", productByCategoryId);
 //router.get("/productbycountry/:country", productByCountry);
 //router.get("/productbyexpirydate/:expirydate", productByExpiryDate);
 // router.get(

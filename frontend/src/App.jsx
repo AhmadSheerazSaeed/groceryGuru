@@ -15,7 +15,7 @@ import Carousel from "./components/carousel/Carousel";
 import Products from "./components/products/Products";
 
 import ProductDetails from "./components/products/ProductDetails";
-import CategoryItems from "./components/categories/CategoryItems"
+import CategoryItems from "./components/categories/CategoryItems";
 
 function App() {
   return (
@@ -41,11 +41,12 @@ function App() {
           <Route exact path="/forgotPassword" element={<ForgotPassword />} />
           <Route exact path="/newcustomer" element={<NewCustomer />} />
           <Route path="/categories/:id" element={<CategoryItems />} />
-          <Route path="/productdetails/:id" element={<ProductDetails/>}/>
+          <Route path="/productdetails/:id" element={<ProductDetails />} />
 
           <Route exact path="*" element={<PageNotFound />} />
         </Routes>
       </div>
+
       <Footer />
     </div>
   );

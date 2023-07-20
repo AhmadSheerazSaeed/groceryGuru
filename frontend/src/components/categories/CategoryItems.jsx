@@ -7,11 +7,9 @@ export default function CategoryItems() {
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
-    axios
-      .get(`http://localhost:4000/api/products/productbycategory/${id}`)
-      .then((res) => {
-        setProductItem(res.data);
-      });
+    axios.get(`/api/products/productbycategory/${id}`).then((res) => {
+      setProductItem(res.data);
+    });
   }, []);
   console.log(productItem);
   return (

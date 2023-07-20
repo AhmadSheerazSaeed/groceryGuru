@@ -71,7 +71,6 @@ export const customerById = async (req, res) => {
   return res.status(200).json(customer);
 };
 
-
 /**
  *
  * @param {*} req
@@ -79,16 +78,13 @@ export const customerById = async (req, res) => {
  * @returns
  */
 export const customerLogin = async (req, res) => {
-
- try {
-    const customer = await Customer.findOne({email:req.body.email}).lean();
+  try {
+    const customer = await Customer.findOne({ email: req.body.email }).lean();
 
     if (customer == null) {
-      return res
-        .status(404)
-        .json({message: "Invalid email or password"});
+      return res.status(404).json({ message: "Invalid email or password" });
     }
- 
+
     // compare Password
     const passwordValidation = await bcrypt.compare(
       req.body.password,
@@ -96,33 +92,34 @@ export const customerLogin = async (req, res) => {
     );
 
     if (passwordValidation) {
-    const token = generateToken(customer);
-     
-    // const customerToReturn = {...customer}
-    const {password, ...customerToReturn} = customer 
-    return res
-    .status(200) //everything went okay 
-    .cookie("jwt", token, {  //ESSENTIAL cookie --> keep track of who is signed in. (storing token)
-      httpOnly: true, //no scripting languages can access this cookie
-      secure: false, //cookie can only be sent over https SSL/TLS, --> encrypted connection with server
-      sameSite: "lax", //not allowing cookie over cross-site request (when loading images)
-    })
-    .json({
-      message: "Login successful",
-      // we are sending the user as an object with only selected keys
-      customerToReturn // later I might want to send more keys here
-    });
-    }
-    else{
-      return res.status(404).json("Password not matching");
+      const token = generateToken(customer);
 
+      // const customerToReturn = {...customer}
+      const { password, ...customerToReturn } = customer;
+
+      // console.log("customer to return", customerToReturn.firstName);
+
+      return res
+        .status(200) //everything went okay
+        .cookie("jwt", token, {
+          //ESSENTIAL cookie --> keep track of who is signed in. (storing token)
+          httpOnly: true, //no scripting languages can access this cookie
+          secure: false, //cookie can only be sent over https SSL/TLS, --> encrypted connection with server
+          sameSite: "lax", //not allowing cookie over cross-site request (when loading images)
+        })
+        .json({
+          message: "Login successful",
+          // we are sending the user as an object with only selected keys
+          customerToReturn, // later I might want to send more keys here
+        });
+    } else {
+      return res.status(404).json("Password not matching");
     }
   } catch (error) {
-    return res.status(500).json({error: error.message });
+    return res.status(500).json({ error: error.message });
   }
 };
 
-    
 /**
  *
  * @param {*} req
@@ -130,16 +127,15 @@ export const customerLogin = async (req, res) => {
  * @returns
  */
 export const customerLogout = async (req, res) => {
+  res
+    .clearCookie("jwt", {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: false,
+    })
+    .send("Customer logged out");
+};
 
-res.clearCookie("jwt", {
-  httpOnly: true,
-  sameSite: 'lax',
-  secure: false,
-}).send("Customer logged out");
-
- };
-
- 
 // ===== PATCH Routes =====
 
 /**
