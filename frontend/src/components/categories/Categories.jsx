@@ -17,7 +17,7 @@ const Categories = () => {
   };
   return (
     <>
-      <h2>Categories</h2>
+      <h2>Categories </h2>
       <div
         className="row row-cols-1 row-cols-md-4 g-4"
         style={{
@@ -25,6 +25,7 @@ const Categories = () => {
           flexWrap: "wrap",
           width: "100%",
           alignItems: "center",
+         
         }}
       >
         {categories.map((category, key) => (
