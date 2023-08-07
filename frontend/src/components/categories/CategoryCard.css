@@ -3,6 +3,7 @@
     flex-direction: column;
     max-height: 25rem;
     border: 1px solid #ccc;
+    margin-top: 10px;
   }
   
   .card-img-top {
@@ -46,4 +47,7 @@
   .card-btn {
     margin-top: auto;
   }
-  
+  h2{
+    text-align: center;
+   padding-top: 10px;
+  }

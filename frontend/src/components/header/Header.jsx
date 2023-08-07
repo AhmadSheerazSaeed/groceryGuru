@@ -45,7 +45,7 @@ const {cartItems} =  useContext(CartContext)
         <Link to="/cart">
           <>
             <FaOpencart style={{ color: "black" }} />
-            <sup>{cartItems.length}</sup>
+            <sup className={headerStyles.cartItems}>{cartItems.length}</sup>
           </>
         </Link>
         <Link to="/signinandsignup">
