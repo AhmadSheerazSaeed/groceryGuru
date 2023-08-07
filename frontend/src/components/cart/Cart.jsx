@@ -52,7 +52,7 @@ const Cart = () => {
                  -
               </button>
               <div>
-                 Price:{item.quantity * item.purchasePrice}€
+                 Price:{(item.quantity * item.purchasePrice).toFixed(2)}€
               </div>
               </div>
             </li>
