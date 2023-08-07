@@ -4,13 +4,11 @@ import {CartContext} from "../context/CartContext";
 import "./ProductDetail.css";
 export default function ProductDetailCard({ productDetail }) {
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart,cartItems } = useContext(CartContext);
   const handleAddToCart = () =>{
-    console.log(productDetail);
-    const productId = productDetail._id;
-    const quantity = 1;
+   addToCart(productDetail)
 
-    addToCart(productId, quantity);
+   
   };
 
 

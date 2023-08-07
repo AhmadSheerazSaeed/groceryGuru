@@ -7,11 +7,12 @@ import { FaUserTie } from "react-icons/fa";
 import SearchBar from "./searchbar/SearchBar";
 import headerStyles from "./Header.module.css";
 import { CustomerContext } from "../context/CustomerContext";
+import { CartContext } from "../context/CartContext";
 import Logout from "./logout/Logout";
 
 function Header() {
   const { customerName, setCustomerName } = useContext(CustomerContext);
-
+const {cartItems} =  useContext(CartContext)
   {
     /*checking that customer already saved in the localStorage*/
   }
@@ -42,7 +43,10 @@ function Header() {
 
       <div className={headerStyles.wrapper_signIn_cart}>
         <Link to="/cart">
-          <FaOpencart style={{ color: "black" }} />
+          <>
+            <FaOpencart style={{ color: "black" }} />
+            <sup>{cartItems.length}</sup>
+          </>
         </Link>
         <Link to="/signinandsignup">
           <FaUserTie style={{ color: "black" }} />
