@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import "./cart.css";
 
 const Cart = () => {
-  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
+  const { cartItems, removeFromCart, updateQuantity,calculateCartTotalPrice } = useContext(CartContext);
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
@@ -21,7 +21,7 @@ const Cart = () => {
         <p>Your cart is empty.</p>
       ) : (
         <ul>
-          {cartItems.map((item) => (
+          {cartItems.sort((a, b) => a.itemName.localeCompare(b.itemName)).map((item) => (
             <li className="cart-list" key={item._id}>
               <span> {item.itemName} Quantity: {item.quantity} 
               
@@ -34,32 +34,39 @@ const Cart = () => {
               
               
               <button
-                className="delete"
+                className="btn1"
                 onClick={() => handleRemoveFromCart(item._id)}
               >
-                Delete Cart
+                Delete all
               </button>
               <button
-                className="add"
+                className="btn1 plusminus"
                 onClick={() => handleUpdateQuantity(item._id, 1)}
               >
-                ADD +
+                 +
               </button>
               <button
-                className="remove"
+                className="btn1 plusminus"
                 onClick={() => handleUpdateQuantity(item._id, -1)}
               >
-                remove -
+                 -
               </button>
+              <div>
+                 Price:{item.quantity * item.purchasePrice}€
+              </div>
               </div>
             </li>
           ))}
+          <div className="grand"> Grand Total
+            :        {calculateCartTotalPrice().toFixed(2)}€
+          </div>
         </ul>
       )}
-      <button> Checkout
+      <div className="checkout-container">
+      <button className="checkout"> Checkout
 
       </button>
-
+      </div>
     </div>
     </>
   );

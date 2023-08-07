@@ -22,20 +22,35 @@
    
 }
 
-.delete{
-    border: none;
+.btn1{
+    height: 40px;
+    width: 130px;
+    
     color: black;
-    padding: 10px 20px;
+    
     text-align: center;
-    text-decoration: none;
+    
     display: inline-block;
-    margin: 4px 2px;
+ 
     cursor: pointer;
-    border-radius: 16px;
+    border-radius: 8px;
+   
     
 }
-
+.plusminus{
+    font-size: 1.5rem;
+}
+.grand{
+    text-align: center;
+    font-weight: bold;
+   
+    font-size: 2rem;
+    text-decoration: underline;
+   text-underline-offset: 15px;
+}
+/*
 .add{
+    height: 50px;
     border: none;
     color: black;
     padding: 10px 20px;
@@ -59,7 +74,7 @@
     border-radius: 16px;
     
 }
-
+*/
 
 ul{
     display: flex;
@@ -83,4 +98,22 @@ align-items: center;
 
 .price{
     align-self: right;
+}
+
+.checkout{
+    
+    height: 50px;
+    width :150px;
+    background-color:green;
+    margin: 10px 0 ;
+    border-radius: 8px;
+   
+}
+
+.checkout-container{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+ 
+    
 }

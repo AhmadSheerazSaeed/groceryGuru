@@ -130,14 +130,15 @@ const CartProvider = ({ children }) => {
       setCartItems((prevCartItems) =>
         prevCartItems.filter((item) => item._id !== productId)
       );
+      
     } catch (error) {
       console.error("Error removing item from cart:", error);
     }
   };
 
   const updateQuantity = async (productId, quantityChange) => {
-    try {
-      setCartItems((prevCartItems) =>
+      /* try {
+   setCartItems((prevCartItems) =>
         prevCartItems.map((item) =>
           item._id === productId
             ? { ...item, quantity: item.quantity + quantityChange }
@@ -146,7 +147,30 @@ const CartProvider = ({ children }) => {
         
       );
      
-    } catch (error) {
+    }*/
+    try {
+      const itemToEdit = cartItems.filter((item) => {
+        if (item._id === productId) {
+          if (quantityChange === 1) {
+            return { ...item, quantity: item.quantity++ };
+          }
+
+          if (quantityChange === -1 && item.quantity > 1) {
+            return { ...item, quantity: item.quantity-- };
+          } else {
+            return item;
+          }
+        }
+      });
+
+      const itemsWithoutItemToEdit = cartItems.filter((item) => {
+        return item._id !== productId;
+      });
+
+      const updatedCart = [...itemToEdit, ...itemsWithoutItemToEdit];
+      setCartItems(updatedCart);
+    }
+    catch (error) {
 
       console.error("Error updating item quantity:", error);
     }
