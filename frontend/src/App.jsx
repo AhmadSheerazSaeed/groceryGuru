@@ -16,6 +16,8 @@ import Products from "./components/products/Products";
 
 import ProductDetails from "./components/products/ProductDetails";
 import CategoryItems from "./components/categories/CategoryItems";
+import ProductCard from "./components/header/searchbar/ProductCard";
+import SearchBar from "./components/header/searchbar/SearchBar";
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
           <Route exact path="/newcustomer" element={<NewCustomer />} />
           <Route path="/categories/:id" element={<CategoryItems />} />
           <Route path="/productdetails/:id" element={<ProductDetails />} />
+          <Route path="/productbyname/:itemName" element={<ProductCard/>}/>
 
           <Route exact path="*" element={<PageNotFound />} />
         </Routes>
