@@ -2,18 +2,17 @@ import { StatusCodes } from "http-status-codes";
 import Cart from "../models/Cart.js";
 import Product from "../models/Product.js";
 
-
-export const updateCartProductQuantity = async (req,res)=>{
+export const updateCartProductQuantity = async (req, res) => {
   const customerId = req.body.customerId;
   const productId = req.body.productId;
   const quantityChange = req.body.quantityChange;
 
   try {
     const updatedCart = await Cart.findOneAndUpdate(
-      {customerId:customerId,"items.productId":productId},
-      {$inc:{"items.$.quantity": quantityChange}},
+      { customerId, "items.productId": productId },
+      { $inc: { "items.$.quantity": quantityChange } },
       { new: true, arrayFilters: [{ "item.productId": productId }] }
-    )
+    );
     if (!updatedCart) {
       return res
         .status(StatusCodes.NOT_FOUND)
@@ -26,49 +25,47 @@ export const updateCartProductQuantity = async (req,res)=>{
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: error.toString() });
+      .json({ message: error.message });
   }
-}
+};
 
 export const deleteProduct = async (req, res) => {
   const customerId = req.body.customerId;
   const productId = req.body.productId;
   try {
     const updatedCart = await Cart.findOneAndUpdate(
-      { customerId: customerId },
-      { $pull: { items: { productId: productId } } },
-      //The $pull operator removes from an existing array all instances of a value or values that match a specified condition.
-      { new: true } 
+      { customerId },
+      { $pull: { items: { productId } } },
+      { new: true }
     );
     if (!updatedCart) {
       return res
         .status(StatusCodes.NOT_FOUND)
-        .json("product not found or no customer id");
+        .json("Product not found or no customer ID");
     }
     return res
       .status(StatusCodes.OK)
-      .json({ message: "product deleted", deleteProduct: productId });
+      .json({ message: "Product deleted", updatedCart });
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: error.toString() });
+      .json({ message: error.message });
   }
 };
+
 export const deleteCart = async (req, res) => {
   try {
-    const cartToDelete = await Cart.findByIdAndDelete({
-      _id: req.params.id,
-    });
+    const cartToDelete = await Cart.findByIdAndDelete(req.params.id);
     if (!cartToDelete) {
-      return res.status(StatusCodes.NOT_FOUND).json("cart not found");
+      return res.status(StatusCodes.NOT_FOUND).json("Cart not found");
     }
     return res
       .status(StatusCodes.OK)
-      .json({ message: "cart deleted", deleteCart: cartToDelete });
+      .json({ message: "Cart deleted", deleteCart: cartToDelete });
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: error.toString() });
+      .json({ message: error.message });
   }
 };
 
@@ -80,12 +77,34 @@ export const createCart = async (req, res) => {
     });
     return res
       .status(StatusCodes.CREATED)
-      .json({ message: "cart item created", createdCart });
+      .json({ message: "Cart item created", createdCart });
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: error.toString() });
+      .json({ message: error.message });
   }
 };
 
-export default { createCart, updateCartProductQuantity,deleteCart, deleteProduct };
+export const fetchCartItems = async (req, res) => {
+  const customerId = req.params.customerId;
+  try {
+    const cart = await Cart.findOne({ customerId });
+    if (!cart) {
+      return res.status(StatusCodes.NOT_FOUND).json("Cart not found");
+    }
+
+    return res.status(StatusCodes.OK).json(cart.items);
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.message });
+  }
+};
+
+export default {
+  createCart,
+  updateCartProductQuantity,
+  deleteCart,
+  deleteProduct,
+  fetchCartItems,
+};

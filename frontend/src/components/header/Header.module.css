@@ -30,7 +30,10 @@
   order: 4;
   gap: 1rem;
 }
-
+.cartItems{
+  font-size: 17px;
+  color: red;
+}
 /* media query for 900 px */
 @media screen and (max-width: 900px) {
   .wrapper_header {

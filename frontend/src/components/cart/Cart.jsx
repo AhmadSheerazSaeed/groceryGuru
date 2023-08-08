@@ -1,58 +1,75 @@
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import "./cart.css";
 
-import React, { useState } from 'react';
+const Cart = () => {
+  const { cartItems, removeFromCart, updateQuantity,calculateCartTotalPrice } = useContext(CartContext);
 
-const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
-  const handleRemoveFromCart = (product) => {
-    removeFromCart(product);
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
   };
 
-  const handleUpdateQuantity = (product, quantity) => {
-    updateQuantity(product, quantity);
+  const handleUpdateQuantity = (productId, quantityChange) => {
+    updateQuantity(productId, quantityChange);
   };
-
-  const [quantities, setQuantities] = useState({});
-
-  const handleQuantityChange = (event, item) => {
-    const { value } = event.target;
-    setQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [item.id]: parseInt(value, 10),
-    }));
-  };
-
+  console.log(cartItems);
   return (
-    <div>
-            <h2>Cart</h2>
-            
-      {cartItems.length === 0 ? (
+    <>
+    <div className="main">
+      <h2>Your Cart</h2>
+      {cartItems == null || cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <ul>
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              <img src={item.image} alt={item.name} />
-              <h3>{item.name}</h3>
-              <p>Price: {item.price} EUR</p>
-              <p>
-                Quantity:
-                <input
-                  type="number"
-                  min="1"
-                  value={quantities[item.id] || item.quantity}
-                  onChange={(event) => handleQuantityChange(event, item)}
-                />
-              </p>
-              <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
-              <button onClick={() => handleUpdateQuantity(item, quantities[item.id] || item.quantity)}>
-                ADD +
+          {cartItems.sort((a, b) => a.itemName.localeCompare(b.itemName)).map((item) => (
+            <li className="cart-list" key={item._id}>
+              <span> {item.itemName} Quantity: {item.quantity} 
+              
+              </span>
+              <img src={item.imageUrl} alt="" />
+              <div className="sub-main">
+              <div className="price">  {item.purchasePrice.toFixed(2)} 
+              </div>
+              
+              
+              
+              <button
+                className="btn1"
+                onClick={() => handleRemoveFromCart(item._id)}
+              >
+                Delete all
               </button>
+              <button
+                className="btn1 plusminus"
+                onClick={() => handleUpdateQuantity(item._id, 1)}
+              >
+                 +
+              </button>
+              <button
+                className="btn1 plusminus"
+                onClick={() => handleUpdateQuantity(item._id, -1)}
+              >
+                 -
+              </button>
+              <div>
+                 Price:{(item.quantity * item.purchasePrice).toFixed(2)}€
+              </div>
+              </div>
             </li>
           ))}
+          <div className="grand"> Grand Total
+            :        {calculateCartTotalPrice().toFixed(2)}€
+          </div>
         </ul>
       )}
+      <div className="checkout-container">
+      <button className="checkout"> Checkout
+
+      </button>
+      </div>
     </div>
+    </>
   );
 };
 
 export default Cart;
-
