@@ -12,7 +12,7 @@ import {
 const router = express.Router();
 router.get("/allproducts", allProducts);
 router.get("/productbyid/:id", productById);
-router.get("/productbyname/:name", productByName);
+router.get("/productbyname/:itemName", productByName);
 router.get("/productbycategory/:id", productByCategoryId);
 //router.get("/productbycountry/:country", productByCountry);
 //router.get("/productbyexpirydate/:expirydate", productByExpiryDate);

@@ -17,11 +17,11 @@ export const productById = async (req, res) => {
 
 export const productByName = async (req, res) => {
   try {
-    const productName = await Product.findOne({
+    const productName = await Product.find({
       itemName: req.params.itemName,
     });
 
-    if (!productByName) {
+    if (!productName) {
       return res
         .status(StatusCodes.NOT_FOUND)
         .json("product not found or check the spelling");
