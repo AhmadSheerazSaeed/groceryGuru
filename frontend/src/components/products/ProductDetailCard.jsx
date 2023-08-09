@@ -7,8 +7,6 @@ export default function ProductDetailCard({ productDetail }) {
   const { addToCart,cartItems } = useContext(CartContext);
   const handleAddToCart = () =>{
    addToCart(productDetail)
-
-   
   };
 
 

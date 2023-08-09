@@ -12,7 +12,7 @@ import Logout from "./logout/Logout";
 
 function Header() {
   const { customerName, setCustomerName } = useContext(CustomerContext);
-const {cartItems} =  useContext(CartContext)
+  const { cartItems } = useContext(CartContext);
   {
     /*checking that customer already saved in the localStorage*/
   }
@@ -38,7 +38,9 @@ const {cartItems} =  useContext(CartContext)
       </div>
 
       <div className={headerStyles.searchBar}>
-        <SearchBar />
+        <Link to="/">
+          <SearchBar />
+        </Link>
       </div>
 
       <div className={headerStyles.wrapper_signIn_cart}>
