@@ -1,6 +1,15 @@
-import React from "react";
+import { useContext } from "react";
 import "./ProductCard.css";
-export default function ProductCard({  product }) {
+import { CartContext } from "../../context/CartContext";
+
+export default function ProductCard({ product }) {
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    console.log("hello", product);
+  };
+
   return (
     <div className="card mb-3 product-card">
       <div className="row g-0">
@@ -29,8 +38,12 @@ export default function ProductCard({  product }) {
               <strong>salePrice:</strong>
               {product.salePrice}
             </p>
-            <button type="button" class="btn btn-outline-success">
-              ADD TO CARD
+            <button
+              type="button"
+              class="btn btn-outline-success"
+              onClick={handleAddToCart}
+            >
+              ADD TO CART
             </button>
           </div>
         </div>
