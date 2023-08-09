@@ -16,7 +16,8 @@ import React from "react";
 import "./CategoryCard.css";
 import { Link } from "react-router-dom";
 
-export default function CategoryCard({ category }) {
+export default function CategoryCard({ category, btnText }) {
+  console.log("btntecx",btnText)
   return (
     <>
       <div className="card">
@@ -30,7 +31,7 @@ export default function CategoryCard({ category }) {
             className="btn btn-primary"
             style={{ backgroundColor: "#F39317", borderColor: "#F39317" }}
           >
-            click
+            {btnText? "Add To Cart" : "click"}
           </Link>
         </div>
       </div>
