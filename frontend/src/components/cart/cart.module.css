@@ -1,0 +1,181 @@
+.main {
+  height: 100% vh;
+  width: 100% vw;
+  background-color: #f39317;
+}
+
+/* the whole item would be wrapped inside 
+this div */
+.productWrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.H2 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.itemNameAndQtyWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.productName {
+  width: 100px;
+  /* overflow: hidden; */
+}
+
+.imgWrapper {
+  height: 50px;
+  width: 60px;
+}
+
+/* the product image inside the imgWrapper */
+.productImage {
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  /* padding: 4px; */
+}
+
+/* wrapper of product price, delete product, add 
+product quantity and delete quantity buttons */
+.productPriceBtnWrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 450px;
+}
+
+.itemPrice {
+  text-align: right;
+  width: 50px;
+}
+
+.btnWrapper {
+  display: flex;
+  width: 200px;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+/* product delete, add and delete the qty buttons */
+.deleteProductBtn,
+.addProductQtyBtn,
+.deleteProductQtyBtn {
+  height: 40px;
+  width: 60px;
+  border-radius: 6px;
+}
+
+.qtyAndPriceWrapper {
+  display: flex;
+}
+
+.itemTotalText {
+}
+
+.itemQtyTotalPrice {
+  /* color: white; */
+  width: 70px;
+  text-align: end;
+}
+
+.grandTotal {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: underline;
+  text-underline-offset: 15px;
+}
+
+.checkoutBtnWrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.checkoutBtn {
+  height: 50px;
+  width: 150px;
+  background-color: green;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+/* **************************************************************** */
+/* media query for 375 px */
+@media screen and (max-width: 688px) {
+  /* the whole item would be wrapped inside 
+this div */
+  .productWrapper {
+    box-shadow: 0px 30px 11px -30px rgba(0, 0, 0, 0.96);
+  }
+
+  .H2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  /* the whole item would be wrapped 
+  inside this div */
+  .productWrapper {
+    flex-direction: column;
+  }
+
+  .itemNameAndQtyWrapper {
+    align-items: center;
+  }
+
+  .productName {
+    text-align: center;
+  }
+
+  /* wrapper of product price, delete product, add 
+product quantity and delete quantity buttons */
+  .productPriceBtnWrapper {
+    flex-direction: column;
+  }
+
+  .itemPrice {
+    text-align: center;
+  }
+
+  .btnWrapper {
+    display: flex;
+
+    justify-content: center;
+  }
+
+  /* product delete, add and delete 
+  the qty buttons */
+  .deleteProductBtn,
+  .addProductQtyBtn,
+  .deleteProductQtyBtn {
+    height: 30px;
+    width: 40px;
+    border-radius: 6px;
+  }
+
+  .grandTotal {
+    font-size: 1.5rem;
+  }
+
+  .checkoutBtnWrapper {
+    margin-top: 1rem;
+  }
+
+  .checkoutBtn {
+    height: 40px;
+    width: 130px;
+    background-color: green;
+  }
+}
