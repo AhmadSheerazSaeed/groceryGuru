@@ -1,16 +1,3 @@
-// import React from 'react'
-// import "./CategoryCard.css";
-// export default function CategoryCard({category}) {
-//   return (
-//     <div className="card">
-//     <img src={category.imageUrl} className="card-img-top"  alt={category.imageUrl} />
-//       <div className="card-body">
-//       <h3 className="card-title">{category.categoryName}</h3>
-//       </div>
-//     </div>
-//   )
-// }
-
 import React from "react";
 
 import "./CategoryCard.css";
