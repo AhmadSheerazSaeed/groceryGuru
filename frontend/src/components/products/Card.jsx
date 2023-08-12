@@ -11,7 +11,7 @@ export default function Card({ product, onUpdateReviews }) {
 
         <div className="card-body">
           <h5 className="card-title">{product.itemName}</h5>
-          {/* <Review product = { product } /> */}
+
           <Review product={product} onUpdateReviews={onUpdateReviews} />
 
           <p className="card-text">

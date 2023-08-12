@@ -36,7 +36,7 @@ export const productByName = async (req, res) => {
 export const allProducts = async (req, res) => {
   try {
     const products = await Product.find().populate("reviews").exec();
-    console.log(`allproducts ${JSON.stringify(products)}`)
+    // console.log(`allproducts ${JSON.stringify(products)}`)
 
     return res.status(StatusCodes.OK).json(products);
   } catch (error) {
@@ -86,7 +86,7 @@ export const deleteProduct = async (req, res) => {
 export const productByCategoryId = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const products = await Product.find({ categoryId: id });
     return res.status(StatusCodes.OK).json(products);
   } catch (error) {

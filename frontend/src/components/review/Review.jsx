@@ -6,6 +6,8 @@ import { CustomerContext } from "../context/CustomerContext";
 export const Review = ({ product, onUpdateReviews }) => {
   const [activeStars, setActiveStars] = useState(0);
   const [averageRating, setAverageRating] = useState(0);
+  const [numOfReview, setNumOfReview] = useState(0);
+
   const { customerId } = useContext(CustomerContext);
 
   // Calculate the average rating whenever the product rating changes
@@ -18,6 +20,7 @@ export const Review = ({ product, onUpdateReviews }) => {
 
     if (reviews.length === 0) {
       setAverageRating(0);
+      setNumOfReview(0);
       return;
     }
 
@@ -28,10 +31,11 @@ export const Review = ({ product, onUpdateReviews }) => {
     // Update the state with the calculated average rating
     setAverageRating(avgRating);
     setActiveStars(avgRating);
+    setNumOfReview(reviews.length);
   };
 
   /**
-   * Function to handle the review of a product when a star is clicked
+   * Function to handle the review of a product when a review hearts are clicked
    * @param {*} index
    */
   const handleProductReview = async (index) => {
@@ -39,7 +43,7 @@ export const Review = ({ product, onUpdateReviews }) => {
     if (customerId) {
       const userRating = index + 1;
       setActiveStars(userRating);
-      
+
       const reviewRequest = {
         customerId: customerId,
         productId: product._id,
@@ -48,10 +52,7 @@ export const Review = ({ product, onUpdateReviews }) => {
 
       try {
         // Send the review data to the server
-        const reviewResponse = await axios.post(
-          "/api/reviews/newreview",
-          reviewRequest
-        );
+        await axios.post("/api/reviews/newreview", reviewRequest);
 
         // Fetch the updated product to calculate the new average rating
         const updatedProduct = await axios.get(
@@ -71,6 +72,7 @@ export const Review = ({ product, onUpdateReviews }) => {
 
   return (
     <div className="rating-box">
+      {/* Hearts */}
       <div className="star-container">
         {[...Array(5)].map((_, index) => (
           <i
@@ -81,6 +83,13 @@ export const Review = ({ product, onUpdateReviews }) => {
             🧡
           </i>
         ))}
+      </div>
+      <div className="review-count-wrapper">
+        {/* Tooltip for average rating */}
+        <span className="tooltip-text">
+          Average Rating: {averageRating.toFixed(2)}
+        </span>
+        <span className="review-count">{numOfReview} reviews</span>
       </div>
     </div>
   );

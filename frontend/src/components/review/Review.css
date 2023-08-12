@@ -7,9 +7,9 @@
 .star-container {
   padding: 2px;
   display: flex;
-   gap: 3px;
- 
+  gap: 3px;
 }
+
 .rating-box {
   cursor: pointer;
 }
@@ -29,6 +29,29 @@
 
 .starsactive {
   opacity: 100%;
- }
+}
 
- 
+/* New styles for tooltip */
+.review-count-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    position: absolute;
+    top: 100%; /* Position it right below the review count */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+    white-space: nowrap; /* Prevent wrapping of tooltip text */
+    margin-top: 5px; /* Some spacing between the review count and the tooltip */
+}
+
+.review-count-wrapper:hover .tooltip-text {
+    display: block;
+}

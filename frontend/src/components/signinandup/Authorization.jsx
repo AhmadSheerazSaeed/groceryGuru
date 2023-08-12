@@ -22,7 +22,7 @@ function Authorization() {
         "/api/customers/customerlogin",
         userData
       );
-      console.log("user", loggedinUser.data.customerToReturn._id);
+      // console.log("user", loggedinUser.data.customerToReturn._id);
       // setting customer name to display in the welcome message
       setCustomerName(loggedinUser.data.customerToReturn.firstName);
       setCustomerId(loggedinUser.data.customerToReturn._id);
@@ -33,6 +33,9 @@ function Authorization() {
         "userData",
         JSON.stringify(loggedinUser.data.customerToReturn.firstName)
       );
+
+      //not to lose the customerId on page refreshes store it in local storage
+      localStorage.setItem("customerId", loggedinUser.data.customerToReturn._id);
 
       // navigate use to main page
       navigate("/");

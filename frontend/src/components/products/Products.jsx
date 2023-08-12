@@ -8,18 +8,25 @@ export default function Products() {
   const [theProduct, setTheProduct] = useState([]);
   const { CartItems } = useContext(CartContext);
 
+  /**
+   * Updates the reviews of a specific product.
+   *
+   * This function is passed down to the Review component. When a product is reviewed
+   * within the Review component, this function is invoked to ensure that the product's
+   * reviews in the parent Products component state are updated accordingly.
+   */
   const updateProductReviews = (updatedProduct) => {
-    setTheProduct(prevProducts => {
-          return prevProducts.map(product => 
-              product._id === updatedProduct._id ? updatedProduct : product
-          );
-      });
-    };
+    setTheProduct((prevProducts) => {
+      return prevProducts.map((product) =>
+        product._id === updatedProduct._id ? updatedProduct : product
+      );
+    });
+  };
 
   useEffect(() => {
     fetchProduct();
   }, []);
-  
+
   const fetchProduct = async () => {
     try {
       const allProducts = await axios.get("/api/products/allProducts");
@@ -46,9 +53,7 @@ export default function Products() {
       >
         {theProduct.map((product, key) => (
           <div className="col" key={key}>
-            {/* <Card product={product} /> */}
             <Card product={product} onUpdateReviews={updateProductReviews} />
-
           </div>
         ))}
       </div>
