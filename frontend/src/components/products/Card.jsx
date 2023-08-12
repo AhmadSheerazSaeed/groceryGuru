@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Card.css";
 import Review from "../review/Review";
 
-export default function Card({ product }) {
+export default function Card({ product, onUpdateReviews }) {
   return (
     <>
       <div className="card">
@@ -11,7 +11,9 @@ export default function Card({ product }) {
 
         <div className="card-body">
           <h5 className="card-title">{product.itemName}</h5>
-          <Review />
+          {/* <Review product = { product } /> */}
+          <Review product={product} onUpdateReviews={onUpdateReviews} />
+
           <p className="card-text">
             <span style={{ color: "#F39317", fontWeight: "bold" }}>
               &euro;{product.salePrice}

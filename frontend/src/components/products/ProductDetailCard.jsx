@@ -1,14 +1,13 @@
-import React,{useContext} from "react";
-import {CartContext} from "../context/CartContext";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 import "./ProductDetail.css";
+import Review from "../review/Review";
 export default function ProductDetailCard({ productDetail }) {
-
-  const { addToCart,cartItems } = useContext(CartContext);
-  const handleAddToCart = () =>{
-   addToCart(productDetail)
+  const { addToCart, cartItems } = useContext(CartContext);
+  const handleAddToCart = () => {
+    addToCart(productDetail);
   };
-
 
   return (
     <div className="card mb-3 product-card">
@@ -38,13 +37,17 @@ export default function ProductDetailCard({ productDetail }) {
               <strong>salePrice:</strong>
               {productDetail.salePrice}
             </p>
+            {/* <p className="card-text">
+              <strong>Rating:</strong>
+              <Review product={productDetail} />
+            </p> */}
             <button
-  type="button"
-  className="btn btn-outline-success"
-  onClick={handleAddToCart}
->
-  ADD TO CART
-</button>
+              type="button"
+              className="btn btn-outline-success"
+              onClick={handleAddToCart}
+            >
+              ADD TO CART
+            </button>
           </div>
         </div>
       </div>

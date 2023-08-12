@@ -14,6 +14,7 @@ const productSchema = new Schema({
   expiryDate: Date,
   dateUpdated: Date,
   available: Boolean,
+  reviews: [{ type: Schema.Types.ObjectId, ref: "review" }]
 });
 
 const Product = model("product ", productSchema);
