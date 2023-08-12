@@ -7,6 +7,16 @@ import Card from "./Card";
 export default function Products() {
   const [theProduct, setTheProduct] = useState([]);
   const { CartItems } = useContext(CartContext);
+
+  const updateProductReviews = (updatedProduct) => {
+    setTheProduct(prevProducts => {
+          return prevProducts.map(product => 
+              product._id === updatedProduct._id ? updatedProduct : product
+          );
+      });
+    };
+
+
   console.log("hello", CartItems);
   useEffect(() => {
     fetchProduct();
@@ -37,7 +47,9 @@ export default function Products() {
       >
         {theProduct.map((product, key) => (
           <div className="col" key={key}>
-            <Card product={product} />
+            {/* <Card product={product} /> */}
+            <Card product={product} onUpdateReviews={updateProductReviews} />
+
           </div>
         ))}
       </div>
