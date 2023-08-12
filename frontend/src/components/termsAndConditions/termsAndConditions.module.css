@@ -1,0 +1,8 @@
+.mainHeading {
+  text-align: center;
+}
+
+.textJustify {
+  text-align: justify;
+  text-justify: inter-word;
+}

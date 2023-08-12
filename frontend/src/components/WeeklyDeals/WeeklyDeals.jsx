@@ -2,6 +2,8 @@ import { productData } from "../../../productData.js";
 import Card from "./Card/Card.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import weeklyDealstyle from "./weeklyDeals.module.css";
+
 export default function WeeklyDeals() {
   const [deals, setDeals] = useState([]);
 
@@ -21,25 +23,16 @@ export default function WeeklyDeals() {
     }
   };
   return (
-    <>
-      <h1 style={{ margin: "20px auto", textAlign: "center" }}>
-        Weekly Deals{" "}
-      </h1>
-      <div
-        className="row row-cols-1 row-cols-md-3 g-4"
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
+    <div>
+      <h1 className={weeklyDealstyle.H1}>Weekly Deals</h1>
+
+      <div className={weeklyDealstyle.cardWrapper}>
         {deals.map((product, key) => (
-          <div className="col" key={key}>
-            <Card product={product} />
+          <div key={key} className={weeklyDealstyle.cardParentContainer}>
+            <Card product={product} className={weeklyDealstyle.cardComponent} />
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
