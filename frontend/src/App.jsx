@@ -19,6 +19,11 @@ import CategoryItems from "./components/categories/CategoryItems";
 import ProductCard from "./components/header/searchbar/ProductCard";
 import SearchBar from "./components/header/searchbar/SearchBar";
 import SearchResult from "./components/header/searchbar/SearchResult";
+import ShippingAndDeliveryPolicy from "./components/shippingAndDeliveryPolicy/ShippingAndDeliveryPolicy";
+import UnderDevelopment from "./components/underDevelopment/UnderDevelopment";
+import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "./components/termsAndConditions/TermsAndConditions";
+import FrequentlyAskedQuestions from "./components/frequantlyAskedQuestions/FrequentlyAskedQuestions";
 
 function App() {
   return (
@@ -46,8 +51,18 @@ function App() {
           <Route path="/categories/:id" element={<CategoryItems />} />
           <Route path="/productdetails/:id" element={<ProductDetails />} />
           <Route path="/searchResult" element={<SearchResult />} />
-
+          <Route
+            path="/ShippingAndDeliveryPolicy"
+            element={<ShippingAndDeliveryPolicy />}
+          />
+          <Route path="/underDevelopment" element={<UnderDevelopment />} />
+          <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
           <Route exact path="*" element={<PageNotFound />} />
+          <Route path="/termsAndConditions" element={<TermsAndConditions />} />
+          <Route
+            path="/frequentlyAskedQuestions"
+            element={<FrequentlyAskedQuestions />}
+          />
         </Routes>
       </div>
 

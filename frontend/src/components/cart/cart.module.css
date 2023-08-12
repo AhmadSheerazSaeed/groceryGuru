@@ -1,7 +1,11 @@
 .main {
   height: 100% vh;
   width: 100% vw;
-  background-color: #f39317;
+  /* border: 1px solid #fbdeb9; */
+  border-radius: 4px;
+  padding: 2rem 0;
+  background-color: rgba(243, 147, 23, 0.05);
+  /* rgba(243 147 23 1) */
 }
 
 /* the whole item would be wrapped inside 
@@ -74,6 +78,8 @@ product quantity and delete quantity buttons */
   height: 40px;
   width: 60px;
   border-radius: 6px;
+  background-color: #f39317;
+  border: none;
 }
 
 .qtyAndPriceWrapper {
@@ -106,9 +112,10 @@ product quantity and delete quantity buttons */
 .checkoutBtn {
   height: 50px;
   width: 150px;
-  background-color: green;
+  background-color: #f39317;
   margin: 10px 0;
   border-radius: 8px;
+  border: none;
 }
 
 /* **************************************************************** */

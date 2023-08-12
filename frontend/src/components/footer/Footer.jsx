@@ -1,94 +1,101 @@
 import React from "react";
 
-import "./footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileAlt, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitterSquare,
   faFacebookSquare,
 } from "@fortawesome/free-brands-svg-icons";
+import footerCss from "./footer.module.css";
+import { Link } from "react-router-dom";
+import ShippingAndDeliveryPolicy from "../shippingAndDeliveryPolicy/ShippingAndDeliveryPolicy";
 
 function Footer() {
   return (
-    <>
-      <section className="footer-section">
-        <div className="footer-cards grid-container">
-          {/* >>=========== right card ===========<< */}
-          <div className="footer-card-right">
-            <h5 className="h-five">Information</h5>
-            <a className="link" href="#" style={{ textDecoration: "none" }}>
-              <h6>About Us</h6>
-            </a>
-            <a className="link" href="#">
-              <h6>Privacy Policy</h6>
-            </a>
-            <a className="link" href="#">
-              <h6>Blog</h6>
-            </a>
+    <section className={footerCss.footerSection}>
+      <div className={footerCss.footerContainer}>
+        {/* >>=========== first column Information ===========<< */}
+        <div className={footerCss.sectionContainer}>
+          <h5 className={footerCss.sectionHeading}>Information</h5>
+          <Link className={footerCss.links} to={"/underDevelopment"}>
+            About Us
+          </Link>
+
+          <Link className={footerCss.links} to={"/privacyPolicy"}>
+            Privacy Policy
+          </Link>
+
+          <Link className={footerCss.links} to={"/underDevelopment"}>
+            Blog
+          </Link>
+        </div>
+
+        {/* >>=========== second column why buy from us ===========<< */}
+
+        <div className={footerCss.sectionContainer}>
+          <h5 className={footerCss.sectionHeading}>Why Buy From Us</h5>
+
+          <Link className={footerCss.links} to={"/ShippingAndDeliveryPolicy"}>
+            Shipping & Delivery
+          </Link>
+          <Link className={footerCss.links} to={"/underDevelopment"}>
+            Secure payment
+          </Link>
+          <Link className={footerCss.links} to={"/frequentlyAskedQuestions"}>
+            FAQ
+          </Link>
+          <Link className={footerCss.links} to={"/termsAndConditions"}>
+            Terms & Conditions
+          </Link>
+        </div>
+
+        {/* >>=========== third column contact us ===========<< */}
+
+        <div className={footerCss.sectionContainer}>
+          <h5 className={footerCss.sectionHeading}>Contact Us</h5>
+          <div className={footerCss.sectionChildContainer}>
+            <FontAwesomeIcon
+              className={footerCss.awesomeIcon}
+              icon={faMobileAlt}
+            />
+            <h7>(123)456-7890</h7>
           </div>
 
-          {/* >>=========== middle card ===========<< */}
-
-          <div className="footer-card-middle">
-            <h5 className="h-five">Why Buy From Us</h5>
-            <a className="link" href="#">
-              <h6>Shipping & Delivery</h6>
-            </a>
-            <a className="link" href="#">
-              <h6>Secure payment</h6>
-            </a>
-            <a className="link" href="#">
-              <h6>FAQ</h6>
-            </a>
-            <a className="link" href="#">
-              <h6>Terms & Conditions</h6>
-            </a>
-          </div>
-
-          {/* >>=========== left card ===========<< */}
-
-          <div className="footer-card-right">
-            <h5 className="h-five">Contact Us</h5>
-            <ul className="contact-us">
-              <li>
-                <FontAwesomeIcon className="icon" icon={faMobileAlt} />
-                <h6 className="phone">(123)456-7890</h6>{" "}
-              </li>
-
-              <li>
-                <FontAwesomeIcon className="icon" icon={faLocationDot} />
-                <h7 className="location">
-                  E-Comm, 4578
-                  <br />
-                  Marmora Road,
-                  <br />
-                  Glasgow D04 89GR
-                </h7>
-              </li>
-            </ul>
-          </div>
-
-          {/* >>=========== follow us ===========<< */}
-
-          <div className="follow-us">
-            <h5 className="follow-us">Follow Us</h5>
-            <div className="face-twit-icon">
-              <FontAwesomeIcon
-                className="icon facebook-icon"
-                icon={faFacebookSquare}
-              />
-
-              <FontAwesomeIcon
-                className="icon twitter-icon"
-                icon={faTwitterSquare}
-              />
+          <div className={footerCss.sectionChildContainer}>
+            <FontAwesomeIcon
+              className={footerCss.awesomeIcon}
+              icon={faLocationDot}
+            />
+            <div className={footerCss.contactUsAddressContainer}>
+              <p className={footerCss.pTag}>E-Comm, 4578</p>
+              <p className={footerCss.pTag}>Marmora Road,</p>
+              <p className={footerCss.pTag}>Glasgow D04 89GR</p>
             </div>
           </div>
         </div>
-        <hr />
-        <p className="copy-right">© 2021 All rights reserved</p>
-      </section>
-    </>
+
+        {/* >>=========== forth columd follow us ===========<< */}
+
+        <div className={footerCss.sectionContainer}>
+          <h5 className={footerCss.sectionHeading}>Follow Us</h5>
+          <div
+            className={`${footerCss.sectionChildContainer} ${footerCss.sectionChildContainerFollowUsIcons}`}
+          >
+            <FontAwesomeIcon
+              className={footerCss.awesomeIcon}
+              icon={faFacebookSquare}
+            />
+
+            <FontAwesomeIcon
+              className={footerCss.awesomeIcon}
+              icon={faTwitterSquare}
+            />
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p className={footerCss.rightReserved}>© 2023 All rights reserved</p>
+    </section>
   );
 }
 

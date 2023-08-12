@@ -1,0 +1,27 @@
+.allCategoriesWrapper {
+  padding: 0 1.9rem;
+}
+
+.H2 {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cardParentContainer {
+  width: 300px;
+  height: 350px;
+}
+
+.cardComponent {
+  height: 100%;
+  width: 100%;
+}

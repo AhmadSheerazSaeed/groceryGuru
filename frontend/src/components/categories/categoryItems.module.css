@@ -1,0 +1,18 @@
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.categoryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+.categoryContainer {
+  width: 300px;
+  height: 350px;
+}
