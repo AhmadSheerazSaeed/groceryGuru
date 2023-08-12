@@ -16,11 +16,10 @@ export default function Products() {
       });
     };
 
-
-  console.log("hello", CartItems);
   useEffect(() => {
     fetchProduct();
   }, []);
+  
   const fetchProduct = async () => {
     try {
       const allProducts = await axios.get("/api/products/allProducts");

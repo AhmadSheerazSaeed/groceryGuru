@@ -13,7 +13,7 @@ export default function WeeklyDeals() {
   const fetchWeeklyDeals = async () => {
     try {
       const allProducts = await axios.get("/api/products/allProducts");
-      console.log("allProducts", allProducts);
+      // console.log("allProducts", allProducts);
       const filteredProducts = allProducts.data.filter(
         (product) => product.salePrice !== 0
       );

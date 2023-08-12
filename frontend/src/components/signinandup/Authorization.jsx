@@ -5,7 +5,8 @@ import axios from "axios";
 import { CustomerContext } from "../context/CustomerContext";
 
 function Authorization() {
-  const { setCustomerName } = useContext(CustomerContext);
+  const { setCustomerName, setCustomerId } = useContext(CustomerContext);
+
   // use this hook to navigate user to the main page after the successfull login
   const navigate = useNavigate();
 
@@ -21,9 +22,10 @@ function Authorization() {
         "/api/customers/customerlogin",
         userData
       );
-
+      console.log("user", loggedinUser.data.customerToReturn._id);
       // setting customer name to display in the welcome message
       setCustomerName(loggedinUser.data.customerToReturn.firstName);
+      setCustomerId(loggedinUser.data.customerToReturn._id);
 
       // setting local storage with the name of the person logged in
       // to use it in the welcome section in the page
