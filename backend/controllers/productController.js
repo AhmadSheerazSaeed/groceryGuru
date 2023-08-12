@@ -2,7 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import Product from "../models/Product.js";
 export const productById = async (req, res) => {
   try {
-    const productId = await Product.findById(req.params.id);
+    const productId = await Product.findById(req.params.id).populate("reviews").exec();
 
     if (!productById) {
       return res.status(StatusCodes.NOT_FOUND).json("product not found");
@@ -35,7 +35,8 @@ export const productByName = async (req, res) => {
 };
 export const allProducts = async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await Product.find().populate("reviews").exec();
+    console.log(`allproducts ${JSON.stringify(products)}`)
 
     return res.status(StatusCodes.OK).json(products);
   } catch (error) {

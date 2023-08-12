@@ -11,7 +11,7 @@ export default function Card({ product }) {
 
         <div className="card-body">
           <h5 className="card-title">{product.itemName}</h5>
-          <Review />
+          <Review product = { product } />
           <p className="card-text">
             <span style={{ color: "#F39317", fontWeight: "bold" }}>
               &euro;{product.salePrice}

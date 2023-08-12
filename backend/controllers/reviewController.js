@@ -1,5 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import Review from "../models/Review.js";
+import Product from "../models/Product.js";
 
 export const productRating = async (req, res) => {
   const productId = req.params.productId;
@@ -30,18 +31,46 @@ export const allReviews = async (req, res) => {
       .json({ message: error.toString() });
   }
 };
+
 export const newReview = async (req, res) => {
   try {
-    const createdReview = await Review.create({
+    const reviewExist = await Review.findOne({
       customerId: req.body.customerId,
       productId: req.body.productId,
-      rating: req.body.rating,
-      comment: req.body.comment,
-      dateOfReview: req.body.dateOfReview,
-    });
-    return res
+    })
+    if (reviewExist) {
+      console.log(`review exist ${req.body.productId} for reviewId=>${reviewExist._id}`);
+      const updatedReview = await Review.findByIdAndUpdate(
+        reviewExist._id,
+        {
+          rating: req.body.rating, 
+          dateOfReview: new Date()
+        }, 
+        {new: true}
+        );
+      return res
+      .status(StatusCodes.CREATED)
+      .json({ message: "review created", updatedReview });
+    } else {
+      const createdReview = await Review.create({
+        customerId: req.body.customerId,
+        productId: req.body.productId,
+        rating: req.body.rating,
+        comment: req.body.comment,
+        dateOfReview: req.body.dateOfReview,
+      });
+      
+      // Update the product with the newly created review
+      const product = await Product.findById(req.body.productId);
+      if (product) {
+        product.reviews.push(createdReview._id); // Add the review reference to the product's reviews array
+        await product.save();
+      }
+
+      return res
       .status(StatusCodes.CREATED)
       .json({ message: "review created", createdReview });
+    }
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
