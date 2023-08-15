@@ -7,7 +7,9 @@ function Logout() {
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
+    localStorage.removeItem("customerId")
     setCustomerName("Guest");
+    window.location.reload(); // Reload the page after logout
   };
 
   return (

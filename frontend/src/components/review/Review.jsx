@@ -40,6 +40,7 @@ export const Review = ({ product, onUpdateReviews }) => {
    */
   const handleProductReview = async (index) => {
     // Only allow reviews if a customer is logged in
+    //console.log("cust id",customerId)
     if (customerId) {
       const userRating = index + 1;
       setActiveStars(userRating);
