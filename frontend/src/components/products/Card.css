@@ -34,14 +34,14 @@
     display: block;
   }
   
-  .card-text span:first-child {
+  /* .card-text span:first-child {
     color: #f39317;
     font-weight: bold;
-  }
+  } */
   
-  .card-text span:last-child {
+  /* .card-text span:last-child {
     text-decoration: line-through;
-  }
+  } */
   
   .card-btn {
     margin-top: auto;
