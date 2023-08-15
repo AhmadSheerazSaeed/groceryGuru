@@ -14,21 +14,10 @@ export default function Card({ product, onUpdateReviews }) {
 
           <Review product={product} onUpdateReviews={onUpdateReviews} />
 
-          <p className="card-text">
-            <span style={{ color: "#F39317", fontWeight: "bold" }}>
-              &euro;{product.salePrice}
-            </span>
-            <span style={{ textDecoration: "line-through" }}>
-              &euro;{product.purchasePrice}
-            </span>
+          <p style={{ color: "#f39317 ", fontWeight: "bold" }}>
+            <span>&euro;{product.purchasePrice}</span>
           </p>
-          {/* <a
-            href="#"
-            className="btn btn-primary"
-            style={{ backgroundColor: "#F39317", borderColor: "#F39317" }}
-          >
-            Buy
-          </a> */}
+         
           <Link
             to={`/productdetails/${product._id}`}
             className="btn btn-primary"

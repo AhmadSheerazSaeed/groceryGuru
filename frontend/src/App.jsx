@@ -42,7 +42,7 @@ function App() {
             }
           />
           <Route exact path="/products" element={<Products />} />
-          <Route exact path="/sale" element={<Sale />} />
+          <Route exact path="/sale" element={<WeeklyDeals />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/signinandsignup" element={<Authorization />} />
