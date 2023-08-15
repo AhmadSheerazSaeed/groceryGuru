@@ -24,6 +24,7 @@ import UnderDevelopment from "./components/underDevelopment/UnderDevelopment";
 import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "./components/termsAndConditions/TermsAndConditions";
 import FrequentlyAskedQuestions from "./components/frequantlyAskedQuestions/FrequentlyAskedQuestions";
+import StripePaymentPage from "./stripePayment/StripePaymentPage";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
             path="/frequentlyAskedQuestions"
             element={<FrequentlyAskedQuestions />}
           />
+          <Route path="/stripePaymentPage" element={<StripePaymentPage />} />
         </Routes>
       </div>
 

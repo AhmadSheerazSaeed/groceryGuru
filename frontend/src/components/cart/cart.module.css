@@ -8,6 +8,10 @@
   /* rgba(243 147 23 1) */
 }
 
+.noITemsInCart {
+  text-align: center;
+}
+
 /* the whole item would be wrapped inside 
 this div */
 .productWrapper {
@@ -116,6 +120,10 @@ product quantity and delete quantity buttons */
   margin: 10px 0;
   border-radius: 8px;
   border: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* **************************************************************** */

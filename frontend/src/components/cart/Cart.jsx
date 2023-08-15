@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import cartCss from "./cart.module.css";
 import { RiDeleteBin7Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 // RiDeleteBin7Fill
 
 const Cart = () => {
@@ -15,13 +16,15 @@ const Cart = () => {
   const handleUpdateQuantity = (productId, quantityChange) => {
     updateQuantity(productId, quantityChange);
   };
-  console.log(cartItems);
+  // console.log(cartItems);
   return (
     <>
       <div className={cartCss.main}>
         <h2 className={cartCss.H2}>Your Cart</h2>
         {cartItems == null || cartItems.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <p className={cartCss.noITemsInCart}>
+            There are no Items in the Cart
+          </p>
         ) : (
           <div>
             {cartItems
@@ -79,7 +82,9 @@ const Cart = () => {
           </div>
         )}
         <div className={cartCss.checkoutBtnWrapper}>
-          <button className={cartCss.checkoutBtn}> Checkout</button>
+          <Link className={cartCss.checkoutBtn} to="/stripePaymentPage">
+            Checkout
+          </Link>
         </div>
       </div>
     </>
