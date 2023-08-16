@@ -130,14 +130,13 @@ const CartProvider = ({ children }) => {
       setCartItems((prevCartItems) =>
         prevCartItems.filter((item) => item._id !== productId)
       );
-      
     } catch (error) {
       console.error("Error removing item from cart:", error);
     }
   };
 
   const updateQuantity = async (productId, quantityChange) => {
-      /* try {
+    /* try {
    setCartItems((prevCartItems) =>
         prevCartItems.map((item) =>
           item._id === productId
@@ -169,9 +168,7 @@ const CartProvider = ({ children }) => {
 
       const updatedCart = [...itemToEdit, ...itemsWithoutItemToEdit];
       setCartItems(updatedCart);
-    }
-    catch (error) {
-
+    } catch (error) {
       console.error("Error updating item quantity:", error);
     }
   };
@@ -195,6 +192,7 @@ const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
+        setCartItems,
         addToCart,
         removeFromCart,
         updateQuantity,
